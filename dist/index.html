@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hand Sign Translator</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.20.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-tflite@0.0.1-alpha.9/dist/tf-tflite.min.js"></script>
+  <script type="module" crossorigin src="/hand-sign-website/assets/index-fRi46t7c.js"></script>
+  <link rel="stylesheet" crossorigin href="/hand-sign-website/assets/index-B7aC4yio.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>Hand Sign Translator</h1>
+        <p>ASL alphabet • Sign ↔ Speech</p>
+      </div>
+      <div id="status" class="status">Loading models…</div>
+    </header>
+
+    <section class="mode-tabs">
+      <button id="signModeBtn" class="mode-btn active">Sign → Speech</button>
+      <button id="speechModeBtn" class="mode-btn">Speech → Sign</button>
+    </section>
+
+    <section class="workspace">
+      <div class="camera-card">
+        <div class="video-wrap">
+          <video id="video" autoplay playsinline muted></video>
+          <canvas id="overlay"></canvas>
+          <div id="cameraMessage" class="camera-message">Press “Start Camera”</div>
+        </div>
+
+        <div class="controls">
+          <button id="startCameraBtn" class="primary">Start Camera</button>
+          <button id="stopCameraBtn" disabled>Stop Camera</button>
+        </div>
+
+        <div class="recognition-info">
+          <div>
+            <span class="label">Detected</span>
+            <strong id="detectedLetter">—</strong>
+          </div>
+          <div>
+            <span class="label">Stability</span>
+            <strong id="stability">0 / 15</strong>
+          </div>
+          <div>
+            <span class="label">FPS</span>
+            <strong id="fps">—</strong>
+          </div>
+        </div>
+      </div>
+      
+      <div class="output-card">
+        <div id="signOutput">
+          <div class="panel-title">Sign-to-speech text</div>
+          <div id="wordOutput" class="word-output">—</div>
+
+          <div class="output-controls">
+            <button id="backspaceBtn">⌫ Backspace</button>
+            <button id="clearBtn">Clear</button>
+            <button id="speakBtn" class="primary">🔊 Speak</button>
+          </div>
+
+          <p class="hint">
+            Hold a sign steady until it is accepted. Press Speak to say the
+            completed text.
+          </p>
+        </div>
+
+        <div id="speechOutput" hidden>
+          <div class="panel-title">Speech-to-sign</div>
+
+          <div class="speech-row">
+            <button id="listenBtn" class="primary">🎤 Start Listening</button>
+            <button id="stopListenBtn" disabled>Stop</button>
+          </div>
+
+          <div id="speechText" class="speech-text">—</div>
+          <div id="speechImages" class="speech-images"></div>
+
+          <p class="hint">
+            Speech recognition uses the browser's Web Speech API. The recognized
+            sentence is displayed as ASL alphabet images in two-word batches.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Keypoint model: 42 inputs → 36 classes</span>
+      <span>Point history: 32 inputs → 4 classes</span>
+    </footer>
+  </main>
+
+</body>
+</html>

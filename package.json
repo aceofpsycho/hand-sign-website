@@ -1,0 +1,19 @@
+{
+  "name": "hand-sign-translator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mediapipe/hands": "0.4.1675469240",
+    "@tensorflow/tfjs": "^3.20.0",
+    "@tensorflow/tfjs-backend-cpu": "^3.20.0",
+    "@tensorflow/tfjs-core": "^3.20.0",
+    "@tensorflow/tfjs-tflite": "^0.0.1-alpha.9",
+    "vite": "^7.3.6"
+  }
+}
