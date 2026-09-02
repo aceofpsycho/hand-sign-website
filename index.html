@@ -23,13 +23,11 @@
     </section>
 
     <section class="workspace">
-      <div id="cameraCard" class="camera-card">
+      <div class="camera-card">
         <div class="video-wrap">
           <video id="video" autoplay playsinline muted></video>
           <canvas id="overlay"></canvas>
-          <div id="cameraMessage" class="camera-message">
-            Press “Start Camera”
-          </div>
+          <div id="cameraMessage" class="camera-message">Press “Start Camera”</div>
         </div>
 
         <div class="controls">
@@ -42,23 +40,20 @@
             <span class="label">Detected</span>
             <strong id="detectedLetter">—</strong>
           </div>
-
           <div>
             <span class="label">Stability</span>
             <strong id="stability">0 / 15</strong>
           </div>
-
           <div>
             <span class="label">FPS</span>
             <strong id="fps">—</strong>
           </div>
         </div>
       </div>
-
-      <div id="outputCard" class="output-card">
+      
+      <div class="output-card">
         <div id="signOutput">
           <div class="panel-title">Sign-to-speech text</div>
-
           <div id="wordOutput" class="word-output">—</div>
 
           <div class="output-controls">
@@ -82,7 +77,6 @@
           </div>
 
           <div id="speechText" class="speech-text">—</div>
-
           <div id="speechImages" class="speech-images"></div>
 
           <p class="hint">
