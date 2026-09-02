@@ -99,6 +99,7 @@ h1 {
   border: 1px solid #273449;
   border-radius: 18px;
   padding: 18px;
+  grid-column: 1 / -1;
 }
 
 .video-wrap {

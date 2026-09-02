@@ -154,19 +154,34 @@ function setMode(mode) {
   translatorMode = mode;
 
   const signMode = mode === 0;
+
   signModeBtn.classList.toggle("active", signMode);
   speechModeBtn.classList.toggle("active", !signMode);
 
-  signOutput.hidden = !signMode;
-  speechOutput.hidden = signMode;
-
-  resetStability();
-
+  // Sign → Speech
   if (signMode) {
-    stopSpeechRecognition();
-  } else {
+  cameraCard.style.display = "";
+  outputCard.style.display = "";
+  outputCard.style.gridColumn = "";
+
+  signOutput.hidden = false;
+  speechOutput.hidden = true;
+
+  stopSpeechRecognition();
+}
+
+  // Speech → Sign
+  else {
+    cameraCard.style.display = "none";
+    outputCard.style.display = "block";
+
+    signOutput.hidden = true;
+    speechOutput.hidden = false;
+
     startSpeechRecognition();
   }
+
+  resetStability();
 }
 
 function preprocessLandmarks(landmarks, width, height) {
