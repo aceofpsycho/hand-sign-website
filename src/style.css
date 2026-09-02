@@ -93,6 +93,14 @@ h1 {
   gap: 18px;
 }
 
+.app:has(#speechModeBtn.active) .camera-card {
+  display: none;
+}
+
+.app:has(#speechModeBtn.active) .workspace {
+  grid-template-columns: 1fr;
+}
+
 .camera-card,
 .output-card {
   background: rgba(18, 26, 38, .9);
